@@ -1,10 +1,10 @@
-# 🧠 Task Manager (Flask + Docker + AWS EC2)
+#  Task Manager (Flask + Docker + AWS EC2)
 
 A full-stack **Flask Task Manager** web application containerized with **Docker**, deployed on **Amazon EC2**, and integrated with an **auto-creating database** using SQLAlchemy.
 
 ---
 
-## 🚀 Features
+##  Features
 - Flask web app with user authentication & task management
 - MySQL / MariaDB backend
 - Dockerized for easy deployment
@@ -14,9 +14,9 @@ A full-stack **Flask Task Manager** web application containerized with **Docker*
 
 ---
 
-## 🖥️ Deployment Steps on AWS EC2 (Amazon Linux)
+##  Deployment Steps on AWS EC2 (Amazon Linux)
 
-### 1️⃣ Launch EC2 Instance
+### 1️ Launch EC2 Instance
 1. Go to [AWS EC2 Console]
 2. Launch an instance with:
    - **Amazon Linux**
@@ -29,7 +29,7 @@ A full-stack **Flask Task Manager** web application containerized with **Docker*
 
 ---
 
-### 2️⃣ Update & Install Dependencies
+### 2️ Update & Install Dependencies
 ```bash
 sudo yum update -y
 sudo yum install -y git docker
@@ -49,25 +49,25 @@ sudo systemctl enable docker
 ```
 
 
-### 3️⃣ Clone the Project from GitHub
+### 3️ Clone the Project from GitHub
 ```bash
 git clone https://github.com/<your-username>/cloud-task-manager-dockerized.git
 cd cloud-task-manager-dockerized
 ```
 
 
-### 4️⃣ Environment Configuration
+### 4️ Environment Configuration
 Copy `.env.example` to `.env` if required:
 ```bash
 cd app
 cp .env.example .env
 ```
-
+### Kindly read .env or docker-compose.yml for database details (Password,User,DB Name)
 Adjust DB credentials or secret keys as needed.
 
 ---
 
-### 5️⃣ Build and Run Containers
+### 5️ Build and Run Containers
 Go back to the main folder where `docker-compose.yml` exists:
 ```bash
 cd ..
@@ -81,7 +81,7 @@ This will:
 
 ---
 
-### 6️⃣ Verify Deployment
+### 6️ Verify Deployment
 Check running containers:
 ```bash
 docker ps
@@ -97,11 +97,11 @@ Visit in browser:
 http://<EC2-Public-IP>
 ```
 
-You should see your Task Manager web app 🎉
+You should see your Task Manager web app 
 
 ---
 
-### 7️⃣ Common Commands
+### 7️ Common Commands
 
 **Stop containers:**
 ```bash
@@ -121,13 +121,13 @@ mysql -u <user> -p
 
 ---
 
-## 🧩 Automatic Database Creation
+##  Automatic Database Creation
 
 It happens automatically when the container runs.
 
 ---
 
-## 🧰 Useful Docker Commands
+##  Useful Docker Commands
 
 | Task | Command |
 |------|----------|
@@ -140,7 +140,7 @@ It happens automatically when the container runs.
 
 ---
 
-## 📜 License
+##  License
 This project is open-source and free to use for learning and deployment.
 
 ---
