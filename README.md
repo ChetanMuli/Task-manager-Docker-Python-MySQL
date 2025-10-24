@@ -51,8 +51,8 @@ sudo systemctl enable docker
 
 ### 3️ Clone the Project from GitHub
 ```bash
-git clone https://github.com/<your-username>/cloud-task-manager-dockerized.git
-cd cloud-task-manager-dockerized
+git clone https://github.com/ChetanMuli/Task-manager-Docker-Python-MySQL.git
+cd Task-manager-Docker-Python-MySQL
 ```
 
 
@@ -115,8 +115,8 @@ docker-compose up -d --build
 
 **Check database:**
 ```bash
-docker exec -it <db-container-name> bash
-mysql -u <user> -p
+docker exec -it <db-container-name or ID> bash
+mysql -u <taskuser> -p
 ```
 
 ---
@@ -127,18 +127,6 @@ It happens automatically when the container runs.
 
 ---
 
-##  Useful Docker Commands
-
-| Task | Command |
-|------|----------|
-| List containers | `docker ps -a` |
-| Restart container | `docker restart <container>` |
-| Enter container shell | `docker exec -it <container> bash` |
-| View logs | `docker logs -f <container>` |
-| Remove all containers | `docker rm -f $(docker ps -aq)` |
-| Remove all images | `docker rmi -f $(docker images -q)` |
-
----
 
 ##  License
 This project is open-source and free to use for learning and deployment.
