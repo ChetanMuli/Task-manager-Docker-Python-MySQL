@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <h3>{{ action }} Task</h3>
+    <form method="post">
+      <div class="mb-3">
+        <label>Title</label>
+        <input class="form-control" name="title" value="{{ task.title if task else '' }}" required>
+      </div>
+      <div class="mb-3">
+        <label>Description</label>
+        <textarea class="form-control" name="description">{{ task.description if task else '' }}</textarea>
+      </div>
+      {% if action == 'Edit' %}
+      <div class="mb-3">
+        <label>Status</label>
+        <select class="form-select" name="status">
+          <option {% if task.status=='To Do' %}selected{% endif %}>To Do</option>
+          <option {% if task.status=='In Progress' %}selected{% endif %}>In Progress</option>
+          <option {% if task.status=='Done' %}selected{% endif %}>Done</option>
+        </select>
+      </div>
+      {% endif %}
+      <button class="btn btn-success">{{ action }}</button>
+      <a class="btn btn-secondary" href="{{ url_for('dashboard') }}">Cancel</a>
+    </form>
+  </div>
+</div>
+{% endblock %}

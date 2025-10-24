@@ -1,0 +1,44 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: Pass@123
+      MYSQL_DATABASE: taskdb
+      MYSQL_USER: taskuser
+      MYSQL_PASSWORD: Pass@123
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  web:
+    build: ./app
+    restart: unless-stopped
+    depends_on:
+      - db
+    environment:
+      DB_USER: taskuser
+      DB_PASS: Pass@123
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: taskdb
+      SECRET_KEY: change_this_secret_for_prod
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/app
+
+  nginx:
+    image: nginx:stable
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - web
+
+volumes:
+  db_data:
